@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-//const backend = import.meta.env.VITE_BACKEND_URL
+const backend = import.meta.env.VITE_BACKEND_URL
 
 
 const ForgotPassword = () => {
@@ -17,7 +17,7 @@ const ForgotPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/forgot-password', { email });
+      const response = await axios.post(`${backend}/forgot-password`, { email });
       setMessage(response.data.message);
       toast.success("Check spam if mail not in inbox")
     } catch (error) {

@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
 
+const backend = import.meta.env.VITE_BACKEND_URL
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -19,7 +21,7 @@ const Register = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/signup', {
+      const response = await axios.post(`${backend}/signup`, {
         email,
         password,
       });

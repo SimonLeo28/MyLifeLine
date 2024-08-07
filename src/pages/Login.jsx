@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import Journal from './Journal';
 import { Link } from 'react-router-dom';
 
+const backend = import.meta.env.VITE_BACKEND_URL
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -22,7 +24,7 @@ const Login = () => {
     const password = document.getElementById("password").value;
 
     try {
-      const response = await axios.post('http://localhost:3000/login/', { email, password });
+      const response = await axios.post(`${backend}/login/`, { email, password });
       
       const token = response.data.token;
       localStorage.setItem('authToken', token); // Store token

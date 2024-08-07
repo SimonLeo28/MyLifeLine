@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import Navbar1 from '../components/Navbar1';
 import Footer from '../components/Footer';
 
-//const backend = import.meta.env.VITE_BACKEND_URL
+const backend = import.meta.env.VITE_BACKEND_URL
 
 const SingleJournal = () => {
   const { id } = useParams(); // Get the journal ID from the URL parameters
@@ -15,7 +15,7 @@ const SingleJournal = () => {
     const fetchJournal = async () => {
       const authToken = localStorage.getItem('authToken');
       try {
-        const response = await axios.get(`http://localhost:3000/journals/${id}`, {
+        const response = await axios.get(`${backend}/journals/${id}`, {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },

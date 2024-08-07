@@ -5,9 +5,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-//const backend = import.meta.env.VITE_BACKEND_URL
-
-
+const backend = import.meta.env.VITE_BACKEND_URL
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -41,7 +39,7 @@ const CreateJournal = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:3000/journals',
+        `${backend}/journals`,
         {
           title,
           content,
@@ -126,8 +124,9 @@ const CreateJournal = () => {
             </button>
           </div>
           <div>
-          <button 
-          className='bg-orange-500 text-white font-semibold py-2 rounded hover:bg-orange-600 w-[10%]'>Back</button>
+          <Link to="/Journal" className="mt-4 inline-block bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-700">
+                Back to Entries
+              </Link>
           </div> 
         </div>
       </div>

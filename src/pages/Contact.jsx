@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import axios from 'axios'
 
+const backend = import.meta.env.VITE_BACKEND_URL
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -11,7 +13,7 @@ const Contact = () => {
 
   const sendData = async (Name,Email,Content)=>{
     try {
-      const response = await axios.post("http://localhost:3000/contacts/",{
+      const response = await axios.post(`${backend}/contacts/`,{
         Name:Name,
         Email:Email,
         Message:Message,

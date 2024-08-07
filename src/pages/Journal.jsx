@@ -4,7 +4,7 @@ import Navbar1 from '../components/Navbar1';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 
-//const backend = import.meta.env.VITE_BACKEND_URL
+const backend = import.meta.env.VITE_BACKEND_URL
 
 const Journal = () => {
   const [entries, setEntries] = useState([]);
@@ -23,7 +23,7 @@ const Journal = () => {
 
   const fetchEntries = async (authToken) => {
     try {
-      const response = await axios.get('http://localhost:3000/journals', {
+      const response = await axios.get(`${backend}/journals`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },
