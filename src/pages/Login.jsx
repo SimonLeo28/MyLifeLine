@@ -75,7 +75,7 @@ const Login = () => {
               </div>
               <button className='bg-orange-300 rounded px-4 py-2' type="submit">Login</button>
               <p><Link to={"/Forgot-Password"} className='text-[#4158A6]'>Forgot Password!!!</Link></p>
-              <p>Are you a new one here? <a className='font-bold' href="./Register">Register Here!!!</a></p>
+              <p>Are you a new one here? <Link to={"/Register"}>Register Here!!!</Link></p>
             </form>
           </div>
         </center>
